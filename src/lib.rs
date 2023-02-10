@@ -67,10 +67,10 @@ pub fn computer_in_case(count: i32) -> impl AsRef<str> {
 //5min
 /// Проверяет является ли число простым
 pub fn is_prime(number: i32) -> bool {
-    if (0..=1).contains(&number) {
+    if number <= 1 {
         return false;
     }
-    let limit = ((number as f64).sqrt() as i32).abs();
+    let limit = (number as f64).sqrt() as i32;
 
     for i in 2..=limit {
         if number % i == 0 {
