@@ -85,13 +85,13 @@ pub fn is_prime(number: i32) -> bool {
 pub fn get_multiplication_table_string(limit: usize) -> impl AsRef<str> {
     let mut table: Vec<Vec<String>> = vec![vec![String::new(); limit + 1]; limit + 1];
 
-    for column in (0..=limit).rev() {
+    for column in 0..=limit {
         let space = if column == 0 {
             (limit.checked_ilog10().unwrap_or(0) + 1) as usize
         } else {
             ((column * limit).checked_ilog10().unwrap_or(0) + 1) as usize
         };
-        for row in (0..=limit).rev() {
+        for row in 0..=limit {
             table[row][column] = if row == 0 && column != 0 {
                 format!("{:>space$}", column)
             } else if column == 0 && row != 0 {
